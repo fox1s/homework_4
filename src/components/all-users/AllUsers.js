@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {UsersService} from "../services/UsersService";
 import UserComponent from "../user/UserComponent";
 import {Route, Switch, withRouter} from 'react-router-dom';
-import FullUser from "../full-user/FullUser";
+import IdOfAllElem from "../Id-of-all-elem/IdOfAllElem";
 
 class AllUsers extends Component {
     UserService = new UsersService()
@@ -23,7 +23,7 @@ class AllUsers extends Component {
                   <Switch>
                       <Route path={`${url}/:id`} render={(props)=>{
                           let {match:{params:{id}}} = props;
-                          return <FullUser id ={id}/>
+                          return <IdOfAllElem id ={id}/>
                       }}/>
                   </Switch>
               </div>

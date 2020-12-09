@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {PostsService} from "../services/PostsService";
 import PostComponent from "../posts/PostComponent";
+import {Route, Switch,withRouter} from "react-router-dom";
+import IdOfAllElem from "../Id-of-all-elem/IdOfAllElem";
 
 class AllPosts extends Component {
     PostsService = new PostsService()
@@ -12,6 +14,7 @@ class AllPosts extends Component {
 
     render() {
         let {posts} = this.state;
+        let {match:{url}} = this.props;
         return (
             <div>
                 {posts.map((value, index) => {
@@ -20,8 +23,15 @@ class AllPosts extends Component {
                     }
                     return  false
                 })}
+                <hr/>
+                  <Switch>
+                      <Route path={`${url}/:id`} render={(props)=>{
+                          let {match:{params:{id}}} = props;
+                          return <IdOfAllElem id ={id}/>
+                      }}/>
+                  </Switch>
             </div>
         );
     }
 }
-export default AllPosts;
+export default withRouter(AllPosts);

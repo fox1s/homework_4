@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class FullUser extends Component {
+class IdOfAllElem extends Component {
     render() {
         let {id} = this.props;
         return (
@@ -11,4 +11,4 @@ class FullUser extends Component {
     }
 }
 
-export default FullUser;
+export default IdOfAllElem;
